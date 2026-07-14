@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tengo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root{--ivory:#FBF7EF;--cream:#F1E7D6;--espresso:#2A1E17;--ink:#3A2C22;--muted:#8A7C6B;--hair:#E7DCCB;--ember:#B4552B;
+    --serif:'Lora',Georgia,'Times New Roman',serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+    --geo:'Manrope',var(--sans);}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ivory);color:var(--espresso);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.5}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .wrap{width:100%;margin:0 auto;padding:0 26px}
+  @media(min-width:820px){.wrap{width:62%;max-width:1000px;padding:0}}
+  header{position:sticky;top:0;z-index:10;background:rgba(251,247,239,.9);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid transparent;transition:border-color .4s ease}
+  .mark{font-family:var(--geo);font-weight:700;letter-spacing:-.4px;font-size:22px;padding:16px 0;display:inline-block;color:var(--ember)}
+  header.scrolled{border-bottom-color:var(--hair)}
+  .stop{opacity:0;transform:translateY(28px);transition:opacity 1s ease,transform 1s cubic-bezier(.22,.61,.36,1)}
+  .stop.in{opacity:1;transform:none}
+  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:11vh 0 7vh}
+  .whatif{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(22px,2vw,26px);line-height:1.5;color:var(--ink);margin:0 0 clamp(38px,6vh,74px)}
+  .whatif .hi{color:var(--espresso);font-weight:600}
+  .turn{font-family:var(--serif);font-weight:400;font-size:clamp(23px,2.2vw,28px);line-height:1.45;color:var(--espresso);margin-top:clamp(18px,3vh,40px);padding-top:32px;border-top:1px solid var(--hair)}
+  .turn2{font-family:var(--serif);font-weight:500;font-size:clamp(23px,2.2vw,28px);line-height:1.45;color:var(--ember);margin-top:24px}
+  .label{font-family:var(--sans);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:30px}
+  .team{padding:8vh 0}
+  .person{margin-bottom:46px}
+  .person h3{font-family:var(--serif);font-weight:500;font-size:21px;line-height:1.2}
+  .person .role{font-family:var(--sans);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin:6px 0 12px}
+  .person p{font-size:15px;color:var(--ink);line-height:1.7}
+  footer{padding:9vh 0 13vh;border-top:1px solid var(--hair)}
+  footer .mark{font-size:22px;padding:0 0 18px}
+  footer p{font-size:13px;color:var(--muted);line-height:1.95}
+  footer a{color:var(--espresso);text-decoration:none;border-bottom:1px solid var(--hair)}
+  .social{display:inline-block;margin-top:20px;color:var(--muted);border-bottom:none;transition:color .3s ease}
+  .social:hover{color:var(--ember)}
+  .social svg{display:block;width:20px;height:20px}
+  .hint{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);font-family:var(--sans);font-size:11px;letter-spacing:1px;color:var(--muted);background:rgba(241,231,214,.9);padding:6px 14px;border-radius:20px;transition:opacity .6s ease}
+  .hint.gone{opacity:0}
+</style>
+</head>
+<body>
+  <h1 class="sr-only">Tengo</h1>
+  <header id="hd"><div class="wrap"><span class="mark">tengo</span></div></header>
+  <div class="wrap">
+    <section class="hero">
+      <p class="whatif stop">What if the instrument that has built and protected fortunes for generations could be optimized to each client it's built for, in both its performance and its precise fit?</p>
+      <p class="whatif stop">What if the work a room of specialists does in spreadsheets by hand could be performed, with precision, by software&mdash;<span class="hi">not in weeks, but in minutes?</span></p>
+      <p class="whatif stop">What if that precision arrived with the white-glove care and attention the few have always known, <span class="hi">and no longer stopped at the few?</span></p>
+      <p class="turn stop">The instrument is the same one great fortunes have always trusted.</p>
+      <p class="turn2 stop">Everything around it, Tengo is rewriting.</p>
+    </section>
+    <section class="team">
+      <p class="label stop">The team</p>
+      <div class="person stop">
+        <h3>John O'Grady</h3>
+        <div class="role">Co-Founder &amp; Chief Executive Officer</div>
+        <p>John spent eleven years at Apple, opening its Santa Monica flagship, launching Apple Retail in Europe with the Regent Street store in London, and leading its Chicago and Manhattan flagship markets. Before Apple, he led store districts for Williams-Sonoma and Pottery Barn, and he has since built and advised ventures across insurtech, mobility, and consumer technology. He leads on the conviction that a customer's experience reflects the culture behind it, and that financial security should let people live well now, not only in retirement.</p>
+      </div>
+      <div class="person stop">
+        <h3>Robin B. Shahani</h3>
+        <div class="role">Co-Founder, Chief Commercial Officer &amp; Chief Operating Officer</div>
+        <p>Robin has spent more than thirty years in financial services and fintech. Most recently at FIS, he led the company's AI-enabled reimagination of client experience and go-to-market, after serving as its Chief Procurement and Real Estate Officer. He has held global operating and transformation roles at TD Ameritrade, American Express, Citigroup, and Deutsche Bank. He was inducted into the IAOP Hall of Fame in 2025.</p>
+      </div>
+      <div class="person stop">
+        <h3>Rich Yaker</h3>
+        <div class="role">Co-Founder &amp; Chief Technology Officer</div>
+        <p>Rich has been building platforms on the web since 1995, when he joined Netscape as employee #937. He was Founding CTO of WithoutABox, whose platform still ran the company when Amazon acquired it in 2008, and later led Global DevOps and SRE at Herbalife, scaling the team from four engineers to more than forty across six countries. Since 2023 he has worked full-time in AI, shipping open-source agent frameworks and developer tooling.</p>
+      </div>
+    </section>
+    <footer>
+      <span class="mark stop">tengo</span>
+      <p class="stop">26 Broadway<br>Suite 934-H42<br>New York, NY 10004<br><br>(212) 419-4547<br><a href="mailto:info@tengolife.com">info@tengolife.com</a><br><br>&copy; 2026 Tengo Holdings Incorporated</p>
+      <a class="social stop" href="#" aria-label="Tengo on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8h4.52v14H.24V8zm7.5 0h4.33v1.92h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V22h-4.52v-6.2c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.38 1.6-2.38 3.27V22H7.74V8z"/></svg></a>
+    </footer>
+  </div>
+  <div class="hint" id="hint">scroll &darr;</div>
+  <script>
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.18,rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.stop').forEach(function(el,i){el.style.transitionDelay=(el.closest('.hero')?(i*150)+'ms':'0ms');io.observe(el);});
+    var hd=document.getElementById('hd'),hint=document.getElementById('hint');
+    window.addEventListener('scroll',function(){hd.classList.toggle('scrolled',window.scrollY>10);if(window.scrollY>60&&hint)hint.classList.add('gone');},{passive:true});
+  </script>
+</body>
+</html>
