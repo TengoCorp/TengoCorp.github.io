@@ -1,6 +1,6 @@
 # TengoCorp.github.io
 
-Public marketing site for Tengo — a single static page, no build step.
+Public marketing site for Tengo (Website 1.0, 8 Nov 2026) — static pages, no build step.
 
 **Current URL:** https://tengocorp.github.io/ — a **pre-launch preview**.
 The custom domain is deliberately *not* attached yet.
@@ -12,7 +12,7 @@ The custom domain is deliberately *not* attached yet.
 GitHub Pages publishes this repo from the `main` branch, root directory.
 Pushing to `main` deploys.
 
-- `index.html` — the whole site (inline CSS + JS, no dependencies).
+- `index.html` — the page (inline CSS + JS); `stewardship.html`, `privacy.html`, `terms.html` + `legal.css`; `img/`, `media/`. Analytics (GTM) loads only after consent; see the script at the foot of `index.html`.
 - `tengo-wordmark.svg` — brand asset. Not currently referenced by the page.
 - `.nojekyll` — serve files verbatim, skip Jekyll processing.
 
