@@ -1,114 +1,402 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tengo</title>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="description" content="The instrument is the same one great fortunes have always trusted. Everything around it, Tengo is rewriting.">
+<meta name="description" content="The permanent and variable life insurance great fortunes have always trusted. Tengo rewrites everything around it.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#2A1E17">
 
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Tengo">
-<meta property="og:title" content="Tengo">
-<meta property="og:description" content="The instrument is the same one great fortunes have always trusted. Everything around it, Tengo is rewriting.">
-<meta property="og:url" content="https://tengolife.com/">
-<meta property="og:image" content="https://tengolife.com/tengo-og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Tengo">
-
-<!-- Twitter/X -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tengo">
-<meta name="twitter:description" content="The instrument is the same one great fortunes have always trusted. Everything around it, Tengo is rewriting.">
-<meta name="twitter:image" content="https://tengolife.com/tengo-og.png">
+<!-- Handoff note for Rich: fonts load from Google so this previews anywhere. On
+     tengolife.com, replace the <link> below with the Style Guide's tengo_tokens.css
+     (self-hosted @font-face) and drop the :root palette block that duplicates it.
+     The wordmark is the Style Guide artwork, inlined. The arrival sequence is in media/;
+     its poster is its own last frame. Portraits are img/portrait-*.jpg (see README-handoff.md). -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
 <style>
-  :root{--ivory:#FBF7EF;--cream:#F1E7D6;--espresso:#2A1E17;--ink:#3A2C22;--muted:#8A7C6B;--hair:#E7DCCB;--ember:#B4552B;
-    --serif:'Lora',Georgia,'Times New Roman',serif;
-    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
-    --geo:'Manrope',var(--sans);}
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--ivory);color:var(--espresso);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.5}
-  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-  .wrap{width:100%;margin:0 auto;padding:0 26px}
-  @media(min-width:820px){.wrap{width:62%;max-width:1000px;padding:0}}
-  header{position:sticky;top:0;z-index:10;background:rgba(251,247,239,.9);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid transparent;transition:border-color .4s ease}
-  .mark{font-family:var(--geo);font-weight:700;letter-spacing:-.4px;font-size:22px;padding:16px 0;display:inline-block;color:var(--ember)}
-  header.scrolled{border-bottom-color:var(--hair)}
-  .stop{opacity:0;transform:translateY(28px);transition:opacity 1s ease,transform 1s cubic-bezier(.22,.61,.36,1)}
-  .stop.in{opacity:1;transform:none}
-  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:11vh 0 7vh}
-  .whatif{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(22px,2vw,26px);line-height:1.5;color:var(--ink);margin:0 0 clamp(38px,6vh,74px)}
-  .whatif .hi{color:var(--espresso);font-weight:600}
-  .turn{font-family:var(--serif);font-weight:400;font-size:clamp(23px,2.2vw,28px);line-height:1.45;color:var(--espresso);margin-top:clamp(18px,3vh,40px);padding-top:32px;border-top:1px solid var(--hair)}
-  .turn2{font-family:var(--serif);font-weight:500;font-size:clamp(23px,2.2vw,28px);line-height:1.45;color:var(--ember);margin-top:24px}
-  .label{font-family:var(--sans);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:30px}
-  .team{padding:8vh 0}
-  .person{margin-bottom:46px}
-  .person h3{font-family:var(--serif);font-weight:500;font-size:21px;line-height:1.2}
-  .person .role{font-family:var(--sans);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin:6px 0 12px}
-  .person p{font-size:15px;color:var(--ink);line-height:1.7}
-  footer{padding:9vh 0 13vh;border-top:1px solid var(--hair)}
-  footer .mark{font-size:22px;padding:0 0 18px}
-  footer p{font-size:13px;color:var(--muted);line-height:1.95}
-  footer a{color:var(--espresso);text-decoration:none;border-bottom:1px solid var(--hair)}
-  .social{display:inline-block;margin-top:20px;color:var(--muted);border-bottom:none;transition:color .3s ease}
-  .social:hover{color:var(--ember)}
-  .social svg{display:block;width:20px;height:20px}
-  .hint{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);font-family:var(--sans);font-size:11px;letter-spacing:1px;color:var(--muted);background:rgba(241,231,214,.9);padding:6px 14px;border-radius:20px;transition:opacity .6s ease}
-  .hint.gone{opacity:0}
+/* ---------- Tengo brand tokens (Style Guide v2.2, visual.md) ---------- */
+:root {
+  --espresso:#2A1E17; --soft-dark:#3A2C22; --cocoa:#5A4636; --ivory:#FCF9F2; --cream:#F3EADA;
+  --tan:#C9BBA4; --muted:#8A7C6B; --hairline:#E7DCCB; --tangerine:#FB6D1E; --ember:#B4552B;
+  --warm-brown:#552E04; --plum:#5E3A5A; --mauve:#B98DB2;
+
+  --ground:var(--espresso); --text:var(--ivory); --text-secondary:var(--cream); --text-quiet:var(--tan);
+  --rule:var(--cocoa); --accent:var(--tangerine); --on-accent:var(--espresso); --focus:var(--tangerine);
+
+  --font-display:"Lora", Georgia, serif;
+  --font-body:"Inter","Helvetica Neue",Arial,system-ui,sans-serif;
+  --gutter:clamp(16px,5vw,72px);
+  --measure:36rem;
+  --nav-h:4.25rem;
+  color-scheme:dark;
+}
+/* A cream ground. Roles change on it. */
+.cream {
+  --ground:var(--cream); --text:var(--espresso); --text-secondary:var(--soft-dark); --text-quiet:var(--warm-brown);
+  --rule:var(--hairline); --accent:var(--ember); --focus:var(--ember);
+  background:var(--ground); color:var(--text);
+}
+.dark { background:var(--espresso); color:var(--ivory); }
+
+/* ---------- Base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--espresso);color:var(--ivory);font-family:var(--font-body);
+  font-size:clamp(1.0625rem,0.95rem + 0.5vw,1.25rem);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:.18em}
+:focus-visible{outline:2px solid var(--focus);outline-offset:4px;border-radius:2px}
+p{margin:0} p+p{margin-top:1.1em}
+.display{font-family:var(--font-display);font-style:italic;font-weight:400;line-height:1.15;letter-spacing:-0.005em;text-wrap:balance}
+.skip{position:absolute;left:var(--gutter);top:-4rem;background:var(--tangerine);color:var(--espresso);padding:.6rem 1rem;font-weight:600;z-index:30}
+.skip:focus{top:1rem}
+.inner{width:min(100%,72rem);margin-inline:auto}
+
+/* ---------- Sticky nav ---------- */
+.nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:20;
+  display:flex;align-items:center;padding:0 var(--gutter);
+  background:rgba(42,30,23,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(90,70,54,.45)}
+.nav .wordmark{width:clamp(96px,9vw,124px);display:block}
+.wordmark svg{width:100%;height:auto;display:block}
+
+/* ---------- Screens ---------- */
+.screen{min-height:100svh;display:grid;align-content:center;padding:clamp(5rem,12vh,9rem) var(--gutter)}
+.h{font-size:clamp(2rem,1.4rem + 2.6vw,3.5rem);margin:0 0 .9em}
+.label{font-family:var(--font-body);font-style:normal;font-weight:500;font-size:.8125rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-quiet);margin:0 0 2.25rem}
+.strong{font-family:var(--font-body);font-style:normal;font-weight:600;letter-spacing:-0.01em;line-height:1.2}
+.body{max-width:var(--measure)}
+.body p{line-height:1.65}
+
+/* Screen 1 — Arrival */
+.arrival{position:relative;min-height:100svh;display:grid;align-content:end;padding:0;isolation:isolate}
+.arrival .sequence{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:38% 50%;z-index:-2;background:var(--espresso)}
+@media (max-width:700px){.arrival .sequence{object-position:31% 50%}}
+/* The line and cue wait for the sea, then rise. */
+.arrival .inner{opacity:0;transform:translateY(12px);transition:opacity .9s ease,transform .9s ease}
+.arrival.arrived .inner{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.arrival .inner{opacity:1;transform:none;transition:none}}
+.arrival::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(to top,var(--espresso) 0%,rgba(42,30,23,.92) 18%,rgba(42,30,23,.55) 36%,rgba(42,30,23,0) 58%),
+             linear-gradient(to bottom,rgba(42,30,23,.4) 0%,rgba(42,30,23,0) 26%)}
+.arrival .inner{padding:0 var(--gutter) clamp(2.5rem,7vh,5rem)}
+.arrival .line{max-width:34ch;font-size:clamp(1.5rem,1.05rem + 1.8vw,2.5rem);color:var(--ivory);font-family:var(--font-display);font-style:normal;font-weight:400;line-height:1.22;letter-spacing:-0.005em}
+.arrival .cue{margin-top:clamp(1.25rem,3vh,2rem);color:var(--tan);font-size:.875rem;letter-spacing:.08em;text-transform:uppercase}
+
+/* Screen 2 — What this is (cream, copy + inset) */
+.what .inner{display:grid;gap:clamp(2.5rem,6vw,5rem);align-items:center}
+@media (min-width:900px){.what .inner{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}}
+.what .inset{aspect-ratio:3/4;object-fit:cover;width:100%;border:1px solid var(--rule)}
+@media (max-width:899px){.what .inset{aspect-ratio:4/3;max-height:60vh}}
+
+/* Band — a full-bleed image breath, parallax where the device allows it */
+.band{position:relative;min-height:78svh;background-size:cover;background-position:center 50%;background-repeat:no-repeat}
+@media (min-width:900px) and (hover:hover) and (prefers-reduced-motion:no-preference){.band{background-attachment:fixed}}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,var(--espresso) 0%,rgba(42,30,23,0) 18%,rgba(42,30,23,0) 82%,var(--espresso) 100%)}
+.band.to-cream::after{background:linear-gradient(to bottom,var(--cream) 0%,rgba(243,234,218,0) 16%,rgba(42,30,23,0) 84%,var(--espresso) 100%)}
+
+/* Screen 3 — How it works (espresso, three in a row, copy visible) */
+.how{position:relative;isolation:isolate;overflow:hidden}
+.how .bg{position:absolute;inset:0;z-index:-1;background-size:cover;background-position:center;opacity:.16;filter:saturate(.8)}
+.how .veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(to bottom,var(--espresso) 0%,rgba(42,30,23,.35) 40%,rgba(42,30,23,.35) 60%,var(--espresso) 100%)}
+.tiles{display:grid;gap:clamp(2rem,4vw,3.5rem)}
+@media (min-width:860px){.tiles{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.tile .t{font-size:clamp(1.25rem,1.05rem + .8vw,1.625rem);margin:0 0 .7em}
+.tile p{font-size:clamp(1rem,.95rem + .25vw,1.125rem);line-height:1.6;color:var(--text-secondary)}
+
+/* Screen 4 — The team (cream; portraits left, bios right, stacked) */
+.team{display:grid;gap:clamp(2.5rem,6vw,4.5rem)}
+.member{display:grid;gap:1.5rem;align-items:start}
+@media (min-width:760px){.member{grid-template-columns:clamp(160px,22vw,240px) minmax(0,1fr);gap:clamp(2rem,4vw,3.5rem)}}
+.member .photo{aspect-ratio:4/5;width:100%;max-width:240px;background:var(--hairline);border:1px solid var(--rule);
+  display:grid;place-items:center;color:var(--warm-brown);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
+.member .photo img{width:100%;height:100%;object-fit:cover;display:block}
+.member .photo-pending span{text-align:center;line-height:1.5}
+.member .name{font-size:clamp(1.35rem,1.15rem + .7vw,1.75rem);margin:0 0 .35em}
+.member .title{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-quiet);margin:0 0 1rem;font-weight:500}
+.member .bio{max-width:52rem}
+.member .bio p{font-size:clamp(1rem,.95rem + .25vw,1.125rem)}
+
+/* Screen 5 — Invitation (espresso; form + inset) */
+.invite .inner{display:grid;gap:clamp(2.5rem,6vw,5rem);align-items:center}
+@media (min-width:900px){.invite .inner{grid-template-columns:minmax(0,6fr) minmax(0,6fr)}}
+.invite .h{font-size:clamp(2.25rem,1.5rem + 3vw,4rem)}
+.invite .lead{max-width:var(--measure);color:var(--text-secondary);margin-bottom:2.25rem}
+.invite .inset{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--rule)}
+.form{display:grid;gap:1.25rem;max-width:30rem}
+.field{display:grid;gap:.4rem}
+.field label{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tan);font-weight:500}
+.field input{font:inherit;color:var(--ivory);background:transparent;border:0;border-bottom:1px solid var(--cocoa);padding:.6rem 0;border-radius:0}
+.field input:focus{outline:none;border-bottom-color:var(--tangerine)}
+.button{display:inline-block;font:inherit;font-weight:600;background:var(--tangerine);color:var(--espresso);border:0;padding:.85rem 1.6rem;cursor:pointer;text-decoration:none;margin-top:.5rem}
+.invite .addr{margin-top:1.5rem;color:var(--tan);font-size:.9375rem}
+.invite .addr a{color:var(--tan)} .invite .addr a:hover{color:var(--ivory)}
+.button:hover{background:#ff7f3a}
+
+
+/* Consent — a quiet bar, espresso on cream, shown once; analytics load only on yes. */
+.consent{position:fixed;right:var(--gutter);top:calc(var(--nav-h) + 1.25rem);z-index:25;width:min(26rem,calc(100vw - 2*var(--gutter)));
+  background:var(--cream);color:var(--espresso);border:1px solid var(--hairline);
+  padding:1.1rem 1.25rem;display:none;gap:.9rem;flex-direction:column;align-items:stretch;
+  box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.consent[data-open]{display:flex;animation:consent-in .5s ease both}
+@keyframes consent-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.consent[data-open]{animation:none}}
+.consent p{margin:0;font-size:.9375rem;line-height:1.5}
+.consent p a{color:var(--ember)}
+.consent .acts{display:flex;gap:.6rem;justify-content:flex-end}
+.consent button{font:inherit;font-size:.9375rem;font-weight:600;padding:.6rem 1rem;cursor:pointer;border-radius:0}
+.consent .yes{background:var(--tangerine);color:var(--espresso);border:1px solid var(--tangerine)}
+.consent .yes:hover{background:#ff7f3a}
+.consent .no{background:transparent;color:var(--espresso);border:1px solid var(--warm-brown)}
+.consent .no:hover{background:rgba(85,46,4,.08)}
+.consent :focus-visible{outline:2px solid var(--ember);outline-offset:3px}
+@media (max-width:600px){.consent{right:12px;left:12px;width:auto;top:auto;bottom:12px}}
+
+/* Footer */
+.footer{border-top:1px solid var(--cocoa);padding:3rem var(--gutter) 3.5rem;color:var(--tan);font-size:.9375rem;line-height:1.7}
+.footer .inner{display:grid;gap:1.75rem}
+.footer .wordmark{width:96px}
+.footer nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem 1.4rem}
+.footer nav a{color:var(--ivory);text-decoration:none}
+.footer nav a:hover{color:var(--tangerine);text-decoration:underline}
+.footer address{font-style:normal}
+.footer address a{color:var(--tan);text-decoration:none}
+.footer address a:hover{color:var(--ivory)}
 </style>
 </head>
 <body>
-  <h1 class="sr-only">Tengo</h1>
-  <header id="hd"><div class="wrap"><span class="mark">tengo</span></div></header>
-  <div class="wrap">
-    <section class="hero">
-      <p class="whatif stop">What if the instrument that has built and protected fortunes for generations could be optimized to each client it's built for, in both its performance and its precise fit?</p>
-      <p class="whatif stop">What if the work a room of specialists does in spreadsheets by hand could be performed, with precision, by software&mdash;<span class="hi">not in weeks, but in minutes?</span></p>
-      <p class="whatif stop">What if that precision arrived with the white-glove care and attention the few have always known, <span class="hi">and no longer stopped at the few?</span></p>
-      <p class="turn stop">The instrument is the same one great fortunes have always trusted.</p>
-      <p class="turn2 stop">Everything around it, Tengo is rewriting.</p>
-    </section>
-    <section class="team">
-      <p class="label stop">The team</p>
-      <div class="person stop">
-        <h3>John O'Grady</h3>
-        <div class="role">Co-Founder &amp; Chief Executive Officer</div>
-        <p>John has spent his career building experiences people remember. In eleven years at Apple, he opened the Santa Monica flagship, launched Apple Retail in Europe with the Regent Street store in London, and led the company’s Chicago and Manhattan flagship markets, along with key initiatives including Apple Retail’s B2B strategy. Before Apple, he led store districts for Williams-Sonoma Inc., including Pottery Barn. Since Apple, he has built and advised ventures in insurtech, mobility, and consumer technology. Through all of it, he has held to one belief: exceptional customer experience reflects the culture behind it. At Tengo, he pairs that with a second conviction: financial security should let people live well now, not just in retirement.</p>
-      </div>
-      <div class="person stop">
-        <h3>Robin B. Shahani</h3>
-        <div class="role">Co-Founder, Chief Commercial Officer &amp; Chief Operating Officer</div>
-        <p>Robin Shahani is responsible for developing Tengo’s key partnerships and enterprise clients that fuel growth, as well as for the company’s operations.</p>
-        <p>Robin has spent more than thirty years in fintech and financial services. Most recently at FIS, he drove strategic growth and efficiency efforts, including the company’s AI-enabled reimagination of client experience and go-to-market after serving as Chief Procurement and Real Estate Officer, with oversight of $4 billion and 232 offices. He previously held global operating and transformation executive roles at TD Ameritrade, American Express, Citigroup, and Deutsche Bank, as well as management consulting leadership positions at IBM’s Promontory Financial Group, KPMG’s EquaTerra, Silver Oak Partners, and Mitchell Madison Group.</p>
-        <p>Based in New York, Robin earned his undergraduate degree at Harvard and an executive leadership certificate from Cornell’s S.C. Johnson Graduate School of Business. He was inducted into the IAOP Hall of Fame in 2025 and has served on multiple nonprofit boards.</p>
-      </div>
-      <div class="person stop">
-        <h3>Rich Yaker</h3>
-        <div class="role">Co-Founder &amp; Chief Technology Officer</div>
-        <p>Rich has been building platforms on the web since March 1995, when RockWeb Interactive launched as one of the first music sites on the internet. He joined Netscape later that year as employee #937, where he learned JavaScript from Brendan Eich when almost no one else on the planet knew it yet. He was Founding CTO of WithoutABox, whose platform still ran the company when Amazon acquired it in 2008, and later led Global DevOps and SRE at Herbalife, scaling the team from four engineers to more than forty across six countries. Since 2023 he has worked full-time in AI, shipping open-source agent frameworks and developer tooling.</p>
-      </div>
-    </section>
-    <footer>
-      <span class="mark stop">tengo</span>
-      <p class="stop">26 Broadway<br>Suite 934-H42<br>New York, NY 10004<br><br>+1 (212) 419-4547<br><a href="mailto:info@tengolife.com">info@tengolife.com</a><br><br>&copy; 2026 Tengo Holdings Incorporated</p>
-      <a class="social stop" href="https://www.linkedin.com/company/tengolife/" target="_blank" rel="noopener" aria-label="Tengo on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8h4.52v14H.24V8zm7.5 0h4.33v1.92h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V22h-4.52v-6.2c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.38 1.6-2.38 3.27V22H7.74V8z"/></svg></a>
-    </footer>
+<a class="skip" href="#what">Skip to content</a>
+
+<div class="nav">
+  <a class="wordmark" href="#arrival" aria-label="Tengo home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1135 395" role="img" aria-labelledby="tengo-wordmark-title-0">
+  <title id="tengo-wordmark-title-0">tengo</title>
+  <path fill="#FB6D1E" fill-rule="evenodd" d="M1120.842,237.166 C1111.467,255.014 1098.375,268.973 1081.571,279.041 C1064.765,289.109 1045.113,294.145 1022.613,294.145 C1000.113,294.145 980.458,289.074 963.654,278.937 C946.848,268.800 933.827,254.806 924.592,236.958 C915.354,219.113 910.738,198.592 910.738,175.395 C910.738,151.785 915.458,131.092 924.905,113.312 C934.348,95.535 947.473,81.645 964.279,71.645 C981.083,61.645 1000.529,56.645 1022.613,56.645 C1045.250,56.645 1064.973,61.717 1081.779,71.854 C1098.583,81.994 1111.640,95.988 1120.946,113.833 C1130.250,131.681 1134.904,152.202 1134.904,175.395 C1134.904,198.729 1130.217,219.321 1120.842,237.166 ZM1066.988,123.208 C1057.125,110.223 1042.333,103.729 1022.613,103.729 C1009.140,103.729 998.062,106.749 989.384,112.791 C980.702,118.833 974.279,127.238 970.113,137.999 C965.946,148.764 963.863,161.229 963.863,175.395 C963.863,197.202 968.827,214.598 978.759,227.583 C988.687,240.571 1003.306,247.062 1022.613,247.062 C1042.613,247.062 1057.473,240.395 1067.196,227.062 C1076.916,213.729 1081.779,196.509 1081.779,175.395 C1081.779,153.592 1076.848,136.196 1066.988,123.208 ZM870.113,330.395 C866.779,344.979 860.389,356.958 850.946,366.333 C841.500,375.708 829.800,382.687 815.842,387.270 C801.884,391.854 786.431,394.145 769.488,394.145 C756.988,394.145 745.009,392.199 733.550,388.312 C722.092,384.422 711.779,378.833 702.613,371.541 C693.446,364.249 685.946,355.464 680.113,345.187 L726.363,322.270 C730.666,330.464 736.744,336.541 744.592,340.499 C752.437,344.458 760.806,346.437 769.696,346.437 C780.113,346.437 789.416,344.594 797.613,340.916 C805.806,337.234 812.160,331.818 816.675,324.666 C821.187,317.511 823.306,308.589 823.029,297.895 L823.029,276.548 C822.141,277.220 821.238,277.877 820.321,278.520 C805.458,288.937 787.056,294.145 765.113,294.145 C744.416,294.145 726.363,288.937 710.946,278.520 C695.529,268.104 683.583,253.937 675.113,236.020 C666.639,218.104 662.404,197.895 662.404,175.395 C662.404,152.619 666.675,132.306 675.217,114.458 C683.759,96.613 695.875,82.514 711.571,72.166 C727.264,61.821 745.738,56.645 766.988,56.645 C788.375,56.645 806.327,61.821 820.842,72.166 C823.803,74.278 826.610,76.555 829.279,78.982 L829.279,62.895 L873.238,62.895 L873.238,298.729 C873.238,304.422 872.994,309.874 872.509,315.083 C872.020,320.291 871.223,325.395 870.113,330.395 ZM823.550,136.749 C819.729,125.708 813.791,117.098 805.738,110.916 C797.681,104.738 787.264,101.645 774.488,101.645 C761.014,101.645 749.904,104.946 741.154,111.541 C732.404,118.139 725.946,127.029 721.779,138.208 C717.613,149.389 715.529,161.785 715.529,175.395 C715.529,189.145 717.577,201.613 721.675,212.791 C725.770,223.973 732.056,232.827 740.529,239.354 C748.1000,245.884 759.764,249.145 772.821,249.145 C786.291,249.145 797.160,246.056 805.425,239.874 C813.687,233.696 819.729,225.050 823.550,213.937 C827.369,202.827 829.279,189.979 829.279,175.395 C829.279,160.675 827.369,147.791 823.550,136.749 ZM578.238,179.562 C578.238,172.479 577.750,164.634 576.779,156.020 C575.806,147.410 573.550,139.113 570.009,131.124 C566.467,123.139 561.187,116.577 554.175,111.437 C547.160,106.300 537.681,103.729 525.738,103.729 C519.348,103.729 513.029,104.770 506.779,106.854 C500.529,108.937 494.869,112.514 489.800,117.583 C484.729,122.654 480.666,129.598 477.613,138.416 C474.556,147.238 473.029,158.520 473.029,172.270 L473.029,287.895 L422.196,287.895 L422.196,62.895 L466.988,62.895 L466.988,87.892 C472.718,81.119 479.447,75.246 487.196,70.291 C501.640,61.056 519.416,56.437 540.529,56.437 C557.196,56.437 570.946,59.217 581.779,64.770 C592.613,70.327 601.223,77.410 607.613,86.020 C613.1000,94.634 618.723,103.800 621.779,113.520 C624.833,123.244 626.812,132.446 627.717,141.124 C628.619,149.806 629.071,156.854 629.071,162.270 L629.071,287.895 L578.238,287.895 L578.238,179.562 ZM365.946,189.354 L340.738,189.354 L227.695,189.354 C229.382,205.503 234.137,218.498 241.988,228.312 C251.988,240.812 266.571,247.062 285.738,247.062 C298.098,247.062 308.759,244.321 317.717,238.833 C326.675,233.348 333.583,225.395 338.446,214.979 L388.029,229.979 C379.416,250.259 366.119,266.020 348.134,277.270 C330.145,288.520 310.321,294.145 288.654,294.145 C265.875,294.145 245.875,289.214 228.654,279.354 C211.431,269.494 197.994,255.812 188.342,238.312 C178.687,220.812 173.863,200.675 173.863,177.895 C173.863,153.312 178.583,131.958 188.030,113.833 C197.473,95.708 210.598,81.645 227.404,71.645 C244.208,61.645 263.654,56.645 285.738,56.645 C309.071,56.645 328.895,62.098 345.217,72.999 C361.535,83.904 373.654,99.285 381.571,119.145 C389.488,139.009 392.473,162.410 390.529,189.354 L365.946,189.354 ZM327.821,117.479 C319.348,106.229 306.015,100.604 287.821,100.604 C267.265,100.604 251.988,106.958 241.988,119.666 C235.564,127.830 231.215,138.430 228.918,151.437 L339.554,151.437 C337.739,136.798 333.835,125.466 327.821,117.479 ZM113.967,291.541 C99.729,291.193 86.988,288.553 75.738,283.624 C64.488,278.696 55.946,270.884 50.113,260.187 C44.973,250.467 42.265,240.535 41.988,230.395 C41.708,220.259 41.571,208.800 41.571,196.020 L41.571,102.270 L0.738,102.270 L0.738,62.895 L41.571,62.895 L41.571,0.395 L91.571,0.395 L91.571,62.895 L157.613,62.895 L157.613,102.270 L91.571,102.270 L91.571,193.104 C91.571,202.134 91.675,210.050 91.884,216.854 C92.092,223.660 93.515,229.217 96.154,233.520 C101.154,241.854 109.140,246.509 120.113,247.479 C131.083,248.452 143.583,247.895 157.613,245.812 L157.613,287.895 C142.750,290.672 128.202,291.886 113.967,291.541 Z"/>
+</svg></a>
+</div>
+
+<!-- ============ Screen 1 · Arrival ============ -->
+<header class="arrival" id="arrival">
+  <!-- The arrival sequence: the room, the eye, the sea. Plays once per visit (24h), holds on its last
+       frame, and is replaced by that frame for anyone with reduced motion. Poster = the final frame. -->
+  <video class="sequence" id="arrival-video" muted playsinline preload="auto" poster="media/arrival-poster.jpg"
+         aria-label="A woman walks out of a crowded ballroom; the camera moves into her eye and arrives on friends leaping from a sailboat into the sea at golden hour.">
+    <source src="media/arrival-sequence.webm" type="video/webm">
+    <source src="media/arrival-sequence.mp4" type="video/mp4" media="(min-width: 700px)">
+    <source src="media/arrival-sequence-720.mp4" type="video/mp4">
+  </video>
+  <div class="inner">
+    <p class="line">The permanent and variable life insurance great fortunes have always trusted. Tengo rewrites everything around it: how it's built, how it's held, and how it feels to hold.</p>
+    <p class="cue" aria-hidden="true">Scroll</p>
   </div>
-  <div class="hint" id="hint">scroll &darr;</div>
-  <script>
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.18,rootMargin:'0px 0px -8% 0px'});
-    document.querySelectorAll('.stop').forEach(function(el,i){el.style.transitionDelay=(el.closest('.hero')?(i*150)+'ms':'0ms');io.observe(el);});
-    var hd=document.getElementById('hd'),hint=document.getElementById('hint');
-    window.addEventListener('scroll',function(){hd.classList.toggle('scrolled',window.scrollY>10);if(window.scrollY>60&&hint)hint.classList.add('gone');},{passive:true});
-  </script>
+</header>
+
+<main>
+
+<!-- ============ Screen 2 · What this is ============ -->
+<section class="screen cream what" id="what" aria-labelledby="what-h">
+  <div class="inner">
+    <div>
+      <h1 class="display h" id="what-h">Tengo. I&nbsp;have.</h1>
+      <div class="body">
+        <p>It begins with an instrument great fortunes have always trusted, high cash value life insurance, indexed and variable, optimized to do far more than insure a life. For generations, the work of fitting policy to client has been done by hand, expensively, over months. Tengo has been building a platform that does that work in software, exactly, and at a speed the field has never approached. Our people, who are the company, bring the care and attention the ultra-wealthy have come to expect, and the warmth of a relationship that holds across decades. The instrument, our platform, and our people are one experience, and our name says what it feels like to be inside that experience. The state of having, and the ease of having, too.</p>
+      </div>
+    </div>
+    <img class="inset" src="img/the-rooftop.jpg" alt="Friends dancing on a rooftop at dusk, a city behind them, one in an orange dress mid-turn." loading="lazy">
+  </div>
+</section>
+
+<!-- ============ Band ============ -->
+<div class="band to-cream" style="background-image:url('img/the-season.jpg')" role="img" aria-label="Guests arriving through the tall open doors of a sunlit hall by the sea."></div>
+
+<!-- ============ Screen 3 · How it works ============ -->
+<section class="screen dark how" id="how" aria-labelledby="how-h">
+  <div class="bg" style="background-image:url('img/the-courtyard-dinner.jpg')" aria-hidden="true"></div>
+  <div class="veil" aria-hidden="true"></div>
+  <div class="inner">
+    <h2 class="label" id="how-h">How it works</h2>
+    <div class="tiles">
+      <div class="tile">
+        <h3 class="strong t">Trusted instrument.</h3>
+        <p>High cash value life insurance, indexed and variable. Great fortunes have trusted it for generations, and optimized with care it does far more than insure a life. It is the one thing here that was here before us, and the reason everything else was worth building.</p>
+      </div>
+      <div class="tile">
+        <h3 class="strong t">New engine.</h3>
+        <p>For generations, fitting policy to client has been done by hand, expensively, over months. Tengo has been building a platform that does that work in software, exactly, and at a speed the field has never approached, alongside people who have done this work for decades.</p>
+      </div>
+      <div class="tile">
+        <h3 class="strong t">The care it always deserved.</h3>
+        <p>Our people are the company. They bring the care and attention the ultra-wealthy have come to expect, with real warmth, and they stay. Every Tengo voice stands as host to guest.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Screen 4 · The team ============ -->
+<section class="screen cream" id="team" aria-labelledby="team-h">
+  <div class="inner">
+    <h2 class="label" id="team-h">Our team</h2>
+    <div class="team">
+
+      <article class="member">
+        <div class="photo photo-pending" role="img" aria-label="Portrait of John O'Grady, to come"><span>Portrait<br>to come</span></div>
+        <div>
+          <h3 class="strong name">John O'Grady</h3>
+          <p class="title">Co-Founder &amp; Chief Executive Officer</p>
+          <div class="bio">
+            <p>John has spent his career building experiences people remember. In eleven years at Apple, he opened the Santa Monica flagship, launched Apple Retail in Europe with the Regent Street store in London, and led the company's Chicago and Manhattan flagship markets, along with key initiatives including Apple Retail's B2B strategy. Before Apple, he led store districts for Williams-Sonoma Inc., including Pottery Barn. Since Apple, he has built and advised ventures in insurtech, mobility, and consumer technology. Through all of it, he has held to one belief: exceptional customer experience reflects the culture behind it. At Tengo, he pairs that with a second conviction: financial security should let people live well now, not just in retirement.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="member">
+        <div class="photo"><img src="img/portrait-robin.jpg" srcset="img/portrait-robin-400.jpg 400w, img/portrait-robin.jpg 800w" sizes="(min-width: 760px) 240px, 60vw" width="800" height="1000" alt="Robin B. Shahani" loading="lazy"></div>
+        <div>
+          <h3 class="strong name">Robin B. Shahani</h3>
+          <p class="title">Co-Founder, Chief Commercial Officer &amp; Chief Operating Officer</p>
+          <div class="bio">
+            <p>Robin Shahani is responsible for developing Tengo's key partnerships and enterprise clients that fuel growth, as well as for the company's operations.</p>
+            <p>Robin has spent more than thirty years in fintech and financial services. Most recently at FIS, he drove strategic growth and efficiency efforts, including the company's AI-enabled reimagination of client experience and go-to-market after serving as Chief Procurement and Real Estate Officer, with oversight of $4 billion and 232 offices. He previously held global operating and transformation executive roles at TD Ameritrade, American Express, Citigroup, and Deutsche Bank, as well as management consulting leadership positions at IBM's Promontory Financial Group, KPMG's EquaTerra, Silver Oak Partners, and Mitchell Madison Group.</p>
+            <p>Based in New York, Robin earned his undergraduate degree at Harvard and an executive leadership certificate from Cornell's S.C. Johnson Graduate School of Business. He was inducted into the IAOP Hall of Fame in 2025 and has served on multiple nonprofit boards.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="member">
+        <div class="photo"><img src="img/portrait-rich.jpg" srcset="img/portrait-rich-400.jpg 400w, img/portrait-rich.jpg 800w" sizes="(min-width: 760px) 240px, 60vw" width="800" height="1000" alt="Rich Yaker" loading="lazy"></div>
+        <div>
+          <h3 class="strong name">Rich Yaker</h3>
+          <p class="title">Co-Founder &amp; Chief Technology Officer</p>
+          <div class="bio">
+            <p>Rich has been building platforms on the web since March 1995, when RockWeb Interactive launched as one of the first music sites on the internet. He joined Netscape later that year as employee #937, where he learned JavaScript from Brendan Eich when almost no one else on the planet knew it yet. He was Founding CTO of WithoutABox, whose platform still ran the company when Amazon acquired it in 2008, and later led Global DevOps and SRE at Herbalife, scaling the team from four engineers to more than forty across six countries. Since 2023 he has worked full-time in AI, shipping open-source agent frameworks and developer tooling.</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ Screen 5 · Invitation ============ -->
+<section class="screen dark invite" id="write" aria-labelledby="write-h">
+  <div class="inner">
+    <div>
+      <h2 class="display h" id="write-h">Pull up another chair.</h2>
+      <p class="lead">If this is a conversation you've been meaning to have, we would like to have it with you. Write to us, and one of us will answer.</p>
+      <!-- The button opens the visitor's own mail client, addressed to us with the invitation as its subject. Nothing is collected on the site. -->
+      <p><a class="button" href="mailto:info@tengolife.com?subject=Pull%20up%20another%20chair">Write to us</a></p>
+      <p class="addr">Or write directly: <a href="mailto:info@tengolife.com">info@tengolife.com</a></p>
+    </div>
+    <img class="inset" src="img/the-long-table.jpg" alt="Friends and family at a long outdoor table under vines, mid-toast, with room for one more." loading="lazy">
+  </div>
+</section>
+
+
+<!-- Consent. Shown on first visit; the choice is remembered in this browser. Nothing loads until yes. -->
+<div class="consent" id="consent" role="dialog" aria-live="polite" aria-label="Analytics">
+  <p>We'd like to use Google Analytics to understand how this site is used. It sets a cookie and sends a record of your visit to Google. Your choice is remembered, and you can change it on our <a href="stewardship.html#analytics">Stewardship</a> page.</p>
+  <div class="acts">
+    <button class="no" type="button" data-consent="no">No thanks</button>
+    <button class="yes" type="button" data-consent="yes">That's fine</button>
+  </div>
+</div>
+</main>
+
+<!-- ============ Footer ============ -->
+<footer class="footer">
+  <div class="inner">
+    <a class="wordmark" href="#arrival" aria-label="Tengo home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1135 395" role="img" aria-labelledby="tengo-wordmark-title-1">
+  <title id="tengo-wordmark-title-1">tengo</title>
+  <path fill="#FB6D1E" fill-rule="evenodd" d="M1120.842,237.166 C1111.467,255.014 1098.375,268.973 1081.571,279.041 C1064.765,289.109 1045.113,294.145 1022.613,294.145 C1000.113,294.145 980.458,289.074 963.654,278.937 C946.848,268.800 933.827,254.806 924.592,236.958 C915.354,219.113 910.738,198.592 910.738,175.395 C910.738,151.785 915.458,131.092 924.905,113.312 C934.348,95.535 947.473,81.645 964.279,71.645 C981.083,61.645 1000.529,56.645 1022.613,56.645 C1045.250,56.645 1064.973,61.717 1081.779,71.854 C1098.583,81.994 1111.640,95.988 1120.946,113.833 C1130.250,131.681 1134.904,152.202 1134.904,175.395 C1134.904,198.729 1130.217,219.321 1120.842,237.166 ZM1066.988,123.208 C1057.125,110.223 1042.333,103.729 1022.613,103.729 C1009.140,103.729 998.062,106.749 989.384,112.791 C980.702,118.833 974.279,127.238 970.113,137.999 C965.946,148.764 963.863,161.229 963.863,175.395 C963.863,197.202 968.827,214.598 978.759,227.583 C988.687,240.571 1003.306,247.062 1022.613,247.062 C1042.613,247.062 1057.473,240.395 1067.196,227.062 C1076.916,213.729 1081.779,196.509 1081.779,175.395 C1081.779,153.592 1076.848,136.196 1066.988,123.208 ZM870.113,330.395 C866.779,344.979 860.389,356.958 850.946,366.333 C841.500,375.708 829.800,382.687 815.842,387.270 C801.884,391.854 786.431,394.145 769.488,394.145 C756.988,394.145 745.009,392.199 733.550,388.312 C722.092,384.422 711.779,378.833 702.613,371.541 C693.446,364.249 685.946,355.464 680.113,345.187 L726.363,322.270 C730.666,330.464 736.744,336.541 744.592,340.499 C752.437,344.458 760.806,346.437 769.696,346.437 C780.113,346.437 789.416,344.594 797.613,340.916 C805.806,337.234 812.160,331.818 816.675,324.666 C821.187,317.511 823.306,308.589 823.029,297.895 L823.029,276.548 C822.141,277.220 821.238,277.877 820.321,278.520 C805.458,288.937 787.056,294.145 765.113,294.145 C744.416,294.145 726.363,288.937 710.946,278.520 C695.529,268.104 683.583,253.937 675.113,236.020 C666.639,218.104 662.404,197.895 662.404,175.395 C662.404,152.619 666.675,132.306 675.217,114.458 C683.759,96.613 695.875,82.514 711.571,72.166 C727.264,61.821 745.738,56.645 766.988,56.645 C788.375,56.645 806.327,61.821 820.842,72.166 C823.803,74.278 826.610,76.555 829.279,78.982 L829.279,62.895 L873.238,62.895 L873.238,298.729 C873.238,304.422 872.994,309.874 872.509,315.083 C872.020,320.291 871.223,325.395 870.113,330.395 ZM823.550,136.749 C819.729,125.708 813.791,117.098 805.738,110.916 C797.681,104.738 787.264,101.645 774.488,101.645 C761.014,101.645 749.904,104.946 741.154,111.541 C732.404,118.139 725.946,127.029 721.779,138.208 C717.613,149.389 715.529,161.785 715.529,175.395 C715.529,189.145 717.577,201.613 721.675,212.791 C725.770,223.973 732.056,232.827 740.529,239.354 C748.1000,245.884 759.764,249.145 772.821,249.145 C786.291,249.145 797.160,246.056 805.425,239.874 C813.687,233.696 819.729,225.050 823.550,213.937 C827.369,202.827 829.279,189.979 829.279,175.395 C829.279,160.675 827.369,147.791 823.550,136.749 ZM578.238,179.562 C578.238,172.479 577.750,164.634 576.779,156.020 C575.806,147.410 573.550,139.113 570.009,131.124 C566.467,123.139 561.187,116.577 554.175,111.437 C547.160,106.300 537.681,103.729 525.738,103.729 C519.348,103.729 513.029,104.770 506.779,106.854 C500.529,108.937 494.869,112.514 489.800,117.583 C484.729,122.654 480.666,129.598 477.613,138.416 C474.556,147.238 473.029,158.520 473.029,172.270 L473.029,287.895 L422.196,287.895 L422.196,62.895 L466.988,62.895 L466.988,87.892 C472.718,81.119 479.447,75.246 487.196,70.291 C501.640,61.056 519.416,56.437 540.529,56.437 C557.196,56.437 570.946,59.217 581.779,64.770 C592.613,70.327 601.223,77.410 607.613,86.020 C613.1000,94.634 618.723,103.800 621.779,113.520 C624.833,123.244 626.812,132.446 627.717,141.124 C628.619,149.806 629.071,156.854 629.071,162.270 L629.071,287.895 L578.238,287.895 L578.238,179.562 ZM365.946,189.354 L340.738,189.354 L227.695,189.354 C229.382,205.503 234.137,218.498 241.988,228.312 C251.988,240.812 266.571,247.062 285.738,247.062 C298.098,247.062 308.759,244.321 317.717,238.833 C326.675,233.348 333.583,225.395 338.446,214.979 L388.029,229.979 C379.416,250.259 366.119,266.020 348.134,277.270 C330.145,288.520 310.321,294.145 288.654,294.145 C265.875,294.145 245.875,289.214 228.654,279.354 C211.431,269.494 197.994,255.812 188.342,238.312 C178.687,220.812 173.863,200.675 173.863,177.895 C173.863,153.312 178.583,131.958 188.030,113.833 C197.473,95.708 210.598,81.645 227.404,71.645 C244.208,61.645 263.654,56.645 285.738,56.645 C309.071,56.645 328.895,62.098 345.217,72.999 C361.535,83.904 373.654,99.285 381.571,119.145 C389.488,139.009 392.473,162.410 390.529,189.354 L365.946,189.354 ZM327.821,117.479 C319.348,106.229 306.015,100.604 287.821,100.604 C267.265,100.604 251.988,106.958 241.988,119.666 C235.564,127.830 231.215,138.430 228.918,151.437 L339.554,151.437 C337.739,136.798 333.835,125.466 327.821,117.479 ZM113.967,291.541 C99.729,291.193 86.988,288.553 75.738,283.624 C64.488,278.696 55.946,270.884 50.113,260.187 C44.973,250.467 42.265,240.535 41.988,230.395 C41.708,220.259 41.571,208.800 41.571,196.020 L41.571,102.270 L0.738,102.270 L0.738,62.895 L41.571,62.895 L41.571,0.395 L91.571,0.395 L91.571,62.895 L157.613,62.895 L157.613,102.270 L91.571,102.270 L91.571,193.104 C91.571,202.134 91.675,210.050 91.884,216.854 C92.092,223.660 93.515,229.217 96.154,233.520 C101.154,241.854 109.140,246.509 120.113,247.479 C131.083,248.452 143.583,247.895 157.613,245.812 L157.613,287.895 C142.750,290.672 128.202,291.886 113.967,291.541 Z"/>
+</svg>
+    </a>
+    <nav aria-label="Site">
+      <ul>
+        <li><a href="stewardship.html">Stewardship</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="stewardship.html#reading">Accessibility</a></li>
+        <li><a href="#write">Write to us</a></li>
+      </ul>
+    </nav>
+    <address>
+      26 Broadway, Suite 934-H42, New York, NY 10004<br>
+      <a href="tel:+12124194547">+1 (212) 419-4547</a> · <a href="mailto:info@tengolife.com">info@tengolife.com</a> · <a href="https://www.linkedin.com/company/tengolife/" rel="noopener">LinkedIn</a>
+    </address>
+    <p>© 2026 Tengo Holdings Incorporated</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var header=document.getElementById('arrival');
+  var v=document.getElementById('arrival-video');
+  if(!header||!v)return;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // REPLAY_WINDOW_MS: how long after a play the page opens on the sea instead of replaying.
+  // 0 = play on every load (the team's choice for now). 86400000 = once a day.
+  var KEY='tengo.arrival.playedAt', REPLAY_WINDOW_MS=0, seen=false;
+  try{ var t=parseInt(localStorage.getItem(KEY),10); seen=REPLAY_WINDOW_MS>0&&!!t&&(Date.now()-t)<REPLAY_WINDOW_MS; }catch(e){}
+  function arrive(){ if(header.classList.contains('arrived'))return; header.classList.add('arrived'); setTimeout(function(){ document.dispatchEvent(new Event('tengo:arrived')); }, 1400); }
+  function showEnd(){
+    // Hold on the final frame without playing: seek to the end once metadata is in.
+    var seek=function(){ try{ v.currentTime=Math.max(0,v.duration-0.05); }catch(e){} arrive(); };
+    if(v.readyState>=1) seek(); else v.addEventListener('loadedmetadata',seek,{once:true});
+  }
+  if(reduce||seen){ showEnd(); return; }
+  // LINE_AT: seconds into the clip when the line begins to rise (the sea is fully in by ~7.4s). Adjust to taste.
+  var LINE_AT=7.2;
+  v.addEventListener('timeupdate',function(){ if(v.currentTime>=LINE_AT) arrive(); });
+  v.addEventListener('ended',function(){ arrive(); try{ localStorage.setItem(KEY,String(Date.now())); }catch(e){} },{once:true});
+  // If the arrival runs long or autoplay is refused, don't leave the line hidden.
+  var p=v.play();
+  if(p&&p.catch){ p.catch(showEnd); }
+  setTimeout(function(){ if(!header.classList.contains('arrived')) arrive(); }, 9500);
+})();
+</script>
+
+<script>
+/* Analytics consent. GTM container from Christian (GTM-WQFF6TPP). Rich: nothing else to add; do NOT paste the
+   raw GTM snippet into <head> — it would load before consent. To disable analytics entirely, set ANALYTICS_ID=''. */
+(function(){
+  var ANALYTICS_ID='GTM-WQFF6TPP', KEY='tengo.consent.analytics';
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag=window.gtag||gtag;
+  gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:0});
+  function read(){ try{return localStorage.getItem(KEY);}catch(e){return null;} }
+  function write(v){ try{localStorage.setItem(KEY,v);}catch(e){} }
+  function gpc(){ return navigator.globalPrivacyControl===true; }
+  function load(){
+    if(!ANALYTICS_ID||window.__tengoGtmLoaded)return; window.__tengoGtmLoaded=true;
+    gtag('consent','update',{analytics_storage:'granted'});
+    dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    var s=document.createElement('script'); s.async=true;
+    s.src='https://www.googletagmanager.com/gtm.js?id='+ANALYTICS_ID; document.head.appendChild(s);
+  }
+  var bar=document.getElementById('consent');
+  function decide(v){ write(v); if(bar){bar.removeAttribute('data-open');} if(v==='yes')load(); }
+  window.tengoConsent={set:decide,get:read};
+  if(!ANALYTICS_ID)return;
+  var c=read();
+  if(c==='yes'){ load(); return; }
+  if(c==='no'||gpc()){ return; }               /* GPC counts as no, silently, as the policy promises */
+  if(bar){
+    bar.addEventListener('click',function(e){ var b=e.target.closest('[data-consent]'); if(b)decide(b.getAttribute('data-consent')); });
+    /* Ask after the arrival sequence has landed, never over it. */
+    var hdr=document.getElementById('arrival'), open=function(){ bar.setAttribute('data-open',''); };
+    if(!hdr||hdr.classList.contains('arrived')) setTimeout(open,1400);
+    else document.addEventListener('tengo:arrived',open,{once:true});
+  }
+})();
+</script>
 </body>
 </html>
